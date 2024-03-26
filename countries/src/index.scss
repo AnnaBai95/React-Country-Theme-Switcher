@@ -1,17 +1,21 @@
+@import './variables.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+
 @layer base {
   html {
     font-family: "Nunito Sans", sans-serif;
-    background: hsl(0, 0%, 98%);
+    background: $v-light-grey;
   }
 }
 
+
 @layer components{
   header{
-    box-shadow: 0 1px 3px 1px  hsl(0deg 0% 88.98%);
+    box-shadow: 0 1px 3px 1px $shadow-grey;
   }
 }
+

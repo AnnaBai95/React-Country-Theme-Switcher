@@ -7,7 +7,11 @@ module.exports = {
       lightGrey: 'hsl(0, 0%, 98%)',
       darkGrey: 'hsl(0, 0%, 52%)'
     },
-    extend: {},
+    extend: {
+      rotate:{
+        '30': '30deg'
+      }
+    },
   },
   plugins: [],
 };
