@@ -29,7 +29,7 @@ function App() {
             </select>
           </div>
         </div>
-        <div className="card-container flex flex-wrap gap-16 mt-10 justify-between">
+        <div className="card-container flex flex-wrap gap-16 mt-10">
           {countryData &&
             countryData.map((country) => (
               <>
@@ -38,20 +38,20 @@ function App() {
                     <img
                       src={country.flags.png}
                       alt={`Flag of ${country.name}`}
-                    ></img>
+                    className="rounded-t w-full h-full"></img>
                   </div>
-                  <div className="card-body">
-                    <p>{country.name}</p>
+                  <div className="card-body p-7">
+                    <p className="font-extrabold mb-3 title">{country.name}</p>
                     <div>
-                      <span>Population:</span>
+                      <span className="font-semibold">Population: </span>
                       <span>{country.population}</span>
                     </div>
                     <div>
-                      <span>Region:</span>
+                      <span className="font-semibold">Region: </span>
                       <span> {country.region}</span>
                     </div>
                     <div>
-                      <span>Capital:</span>
+                      <span className="font-semibold">Capital: </span>
                       <span>{country.capital}</span>
                     </div>
                   </div>
