@@ -4,14 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import countryData from "./data/data.json";
+import { useState } from "react";
 
 function App() {
-  // const handlePopulateFilter = () => {};
+  const [countryList, setCountryList] = useState(countryData);
 
   const uniqueRegions = countryData.filter(
     (country, index, self) =>
-      (index === self.findIndex((c) => c.region === country.region))
+      index === self.findIndex((c) => c.region === country.region)
   );
+
+  const handleRegionFilter = (selectedRegion) => {
+    const newCountryList = countryData.filter(
+      (country) => country.region === selectedRegion
+    );
+    setCountryList(newCountryList);
+  };
 
   return (
     <div className="">
@@ -35,7 +43,7 @@ function App() {
             ></input>
           </div>
           <div>
-            <select>
+            <select onChange={(e) => handleRegionFilter(e.target.value)}>
               <option>Filter by region</option>
               {uniqueRegions &&
                 uniqueRegions.map((reg, index) => (
@@ -45,8 +53,8 @@ function App() {
           </div>
         </div>
         <div className="card-container flex flex-wrap gap-16 mt-10">
-          {countryData &&
-            countryData.map((country, index) => (
+          {countryList &&
+            countryList.map((country, index) => (
               <>
                 <div className="card bg-white rounded" key={index}>
                   <div className="card-header">
