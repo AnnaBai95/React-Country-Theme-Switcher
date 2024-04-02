@@ -33,6 +33,11 @@ select {
     }
   }
 
+  &:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
   .card-body :not(.title)
   {
     font-size: 0.875rem;

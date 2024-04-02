@@ -1,10 +1,12 @@
 import logo from "./logo.svg";
 import "./App.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import countryData from "./data/data.json";
 import { useState } from "react";
+import NavBar from "./components/navigation/nav";
+import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 
 function App() {
   const [countryList, setCountryList] = useState(countryData);
@@ -21,17 +23,16 @@ function App() {
     setCountryList(newCountryList);
   };
 
+  const handleCountrySearch = (countryName) => {
+    const countrySearchList = countryData.filter((country) =>
+      country.name.toLowerCase().includes(countryName.toLowerCase())
+    );
+    setCountryList(countrySearchList);
+  };
+
   return (
     <div className="">
-      <header className="px-10 py-5 bg-white">
-        <nav className="flex justify-between">
-          <span className="font-extrabold">Where in the world?</span>
-          <button>
-            <FontAwesomeIcon icon={faMoon} className="me-2 -rotate-30" />
-            Dark Mode
-          </button>
-        </nav>
-      </header>
+      <NavBar></NavBar>
       <main className="mt-10 px-10">
         <div className="flex justify-between">
           <div className="input-group w-4/12 inline-flex items-center">
@@ -40,22 +41,21 @@ function App() {
               type="text"
               placeholder="Search for a country..."
               className="w-full"
+              onChange={(e) => handleCountrySearch(e.target.value)}
             ></input>
           </div>
-          <div>
-            <select onChange={(e) => handleRegionFilter(e.target.value)}>
-              <option>Filter by region</option>
-              {uniqueRegions &&
-                uniqueRegions.map((reg, index) => (
-                  <option key={index}>{reg.region}</option>
-                ))}
-            </select>
-          </div>
+          <select onChange={(e) => handleRegionFilter(e.target.value)}>
+            <option>Filter by region</option>
+            {uniqueRegions &&
+              uniqueRegions.map((reg) => (
+                <option key={uuidv4()}>{reg.region}</option>
+              ))}
+          </select>
         </div>
         <div className="card-container flex flex-wrap gap-16 mt-10">
           {countryList &&
             countryList.map((country, index) => (
-              <>
+              <Link to="/details">
                 <div className="card bg-white rounded" key={index}>
                   <div className="card-header">
                     <img
@@ -80,7 +80,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-              </>
+              </Link>
             ))}
         </div>
       </main>
