@@ -52,11 +52,12 @@ function App() {
               ))}
           </select>
         </div>
+        {/* <Link to={`/details/${country.name}`} key={index}> */}
         <div className="card-container flex flex-wrap gap-16 mt-10">
           {countryList &&
             countryList.map((country, index) => (
-              <Link to="/details">
-                <div className="card bg-white rounded" key={index}>
+              <Link to={`/details/${country.name}`} state={country} key={index}>
+                <div className="card bg-white rounded">
                   <div className="card-header">
                     <img
                       src={country.flags.png}
