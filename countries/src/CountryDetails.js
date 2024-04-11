@@ -23,15 +23,15 @@ function CountryDetails(props) {
           </button>
         </div>
         <div className="flex ml-10 gap-32">
-          <div>
+          <div className="min-h-96 max-h-96 min-w-450 max-w-450">
             <img
-              src={state.selectedCountry.flags.png}
+              src={state.selectedCountry.flags.svg}
               alt={`Flag of ${state.selectedCountry.name}`}
-              className="min-h-64 max-h-64 w-96 object-fill"
+              className="h-full w-full"
             ></img>
           </div>
           <div>
-            <h1 className="font-extrabold text-2xl mb-8">
+            <h1 className="font-extrabold text-2xl mb-8 mt-8">
               {state.selectedCountry.name}
             </h1>
             <div className="grid grid-rows-5 grid-flow-col gap-x-48 gap-y-2">
@@ -63,7 +63,7 @@ function CountryDetails(props) {
                 <span className="font-extrabold">Currencies: </span>
                 <span>
                   {state.selectedCountry.currencies
-                    .map((currency) => currency.name)
+                    ?.map((currency) => currency.name)
                     .join(", ")}
                 </span>
               </div>
@@ -71,7 +71,7 @@ function CountryDetails(props) {
                 <span className="font-extrabold">Languages: </span>
                 <span>
                   {state.selectedCountry.languages
-                    .map((language) => language.name)
+                    ?.map((language) => language.name)
                     .join(", ")}
                 </span>
               </div>
@@ -79,7 +79,7 @@ function CountryDetails(props) {
             <div className="mt-16 flex">
               <span className="font-extrabold">Border Countries: </span>
               <div className="flex flex-wrap gap-2">
-                {state.selectedCountry.borders.map((border, index) => (
+                {state.selectedCountry.borders?.map((border, index) => (
                   <span key={index} className="border text-sm py-1 px-5">
                     {state.countries
                       .filter((country) => country.alpha3Code === border)

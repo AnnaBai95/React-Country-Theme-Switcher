@@ -10,6 +10,9 @@ module.exports = {
     extend: {
       rotate:{
         '30': '30deg'
+      },
+      spacing:{
+        '450': '28.125rem'
       }
     },
   },
