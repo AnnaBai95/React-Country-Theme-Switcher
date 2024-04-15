@@ -16,13 +16,13 @@ function CountryDetails(props) {
       <main>
         <div className="mt-11 mb-11 ml-10">
           <button
-            className="border py-2 px-7 rounded"
+            className="border py-2 px-7 rounded shadow-border text-sm"
             onClick={() => navigate("/")}
           >
             <FontAwesomeIcon icon={faArrowLeft} className="mr-1" /> Back
           </button>
         </div>
-        <div className="flex ml-10 gap-32">
+        <div className="flex flex-column lg:flex-row ml-10 gap-32">
           <div className="min-h-96 max-h-96 min-w-450 max-w-450">
             <img
               src={state.selectedCountry.flags.svg}
@@ -41,7 +41,7 @@ function CountryDetails(props) {
               </div>
               <div>
                 <span className="font-extrabold">Population: </span>
-                <span>{state.selectedCountry.population}</span>
+                <span>{state.selectedCountry.population.toLocaleString()}</span>
               </div>
               <div>
                 <span className="font-extrabold">Region: </span>
@@ -77,10 +77,10 @@ function CountryDetails(props) {
               </div>
             </div>
             <div className="mt-16 flex">
-              <span className="font-extrabold">Border Countries: </span>
+              <span className="font-extrabold me-2">Border Countries: </span>
               <div className="flex flex-wrap gap-2">
                 {state.selectedCountry.borders?.map((border, index) => (
-                  <span key={index} className="border text-sm py-1 px-5">
+                  <span key={index} className="border text-sm py-1 px-5 shadow-border">
                     {state.countries
                       .filter((country) => country.alpha3Code === border)
                       .map((country) => country.name)}

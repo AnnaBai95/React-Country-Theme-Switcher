@@ -43,3 +43,7 @@ select {
     font-size: 0.875rem;
   }
 }
+
+.shadow-border{
+  box-shadow: 0 1px 3px 1px  $shadow-grey;
+}
