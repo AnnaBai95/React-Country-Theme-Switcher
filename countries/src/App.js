@@ -34,8 +34,8 @@ function App() {
     <div className="">
       <NavBar></NavBar>
       <main className="mt-10 px-10">
-        <div className="flex justify-between">
-          <div className="input-group w-4/12 inline-flex items-center">
+        <div className="flex flex-col md:flex-row justify-between">
+          <div className="input-group w-full md:w-4/12 mb-10 md:mb-auto inline-flex items-center rounded">
             <FontAwesomeIcon icon={faSearch} className="icon ps-1 pr-4" />
             <input
               type="text"
@@ -44,7 +44,7 @@ function App() {
               onChange={(e) => handleCountrySearch(e.target.value)}
             ></input>
           </div>
-          <select onChange={(e) => handleRegionFilter(e.target.value)}>
+          <select onChange={(e) => handleRegionFilter(e.target.value)} className="rounded">
             <option>Filter by region</option>
             {uniqueRegions &&
               uniqueRegions.map((reg) => (
@@ -52,8 +52,8 @@ function App() {
               ))}
           </select>
         </div>
-        {/* <Link to={`/details/${country.name}`} key={index}> */}
-        <div className="card-container flex flex-wrap gap-16 mt-10">
+        
+        <div className="container flex flex-wrap gap-16 mt-10 justify-center md:justify-normal">
           {countryList &&
             countryList.map((country, index) => (
               <Link
@@ -61,7 +61,7 @@ function App() {
                 state={{ selectedCountry: country, countries: countryData }}
                 key={index}
               >
-                <div className="card bg-white rounded">
+                <div className="card bg-white rounded w-72 sm:w-52 xs:w-60 md:w-52 lg:w-58 xl:w-64 2xl:w-80">
                   <div className="card-header">
                     <img
                       src={country.flags.png}

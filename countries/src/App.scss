@@ -1,49 +1,53 @@
-@import './variables.scss';
+@import "./variables.scss";
 
-.input-group{
+.input-group {
   background-color: $white;
   padding: 15px;
-  box-shadow: 0 1px 3px 1px  $shadow-grey;
+  box-shadow: 0 1px 3px 1px $shadow-grey;
   font-size: 0.875rem;
-  .icon{
+  .icon {
     color: $dark-grey;
   }
 
-  input{
+  input {
     outline: none;
   }
 }
 
 select {
-  box-shadow: 0 1px 3px 1px  $shadow-grey;
+  box-shadow: 0 1px 3px 1px $shadow-grey;
   outline: none;
   padding: 15px;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
-.card{
-  width:269px;
-  box-shadow: 0 1px 3px 1px  $shadow-grey;
+.card {
+  // width: 269px;
+  box-shadow: 0 1px 3px 1px $shadow-grey;
+  cursor: pointer;
 
-  .card-header{
-
-    img{
+  .card-header {
+    img {
       object-fit: fill;
       min-height: 150px;
       max-height: 150px;
     }
   }
 
-  &:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-
-  .card-body :not(.title)
-  {
+  .card-body :not(.title) {
     font-size: 0.875rem;
   }
 }
 
-.shadow-border{
-  box-shadow: 0 1px 3px 1px  $shadow-grey;
+.shadow-border {
+  box-shadow: 0 1px 3px 1px $shadow-grey;
+}
+
+@media (min-width: 1024px) {
+  .card {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
