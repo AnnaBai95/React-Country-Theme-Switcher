@@ -44,10 +44,14 @@ select {
   box-shadow: 0 1px 3px 1px $shadow-grey;
 }
 
+
 @media (min-width: 1024px) {
   .card {
     &:hover {
       transform: scale(1.1);
     }
+  }
+  .flag-img{
+    object-fit: initial;
   }
 }

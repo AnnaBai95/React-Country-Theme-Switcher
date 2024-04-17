@@ -22,15 +22,13 @@ function CountryDetails(props) {
             <FontAwesomeIcon icon={faArrowLeft} className="mr-1" /> Back
           </button>
         </div>
-        <div className="container">
-          <div className="flex flex-col lg:flex-row ml-10 gap-0 lg:gap-32">
-            <div className="max-h-96 min-w-450 max-w-450">
-              <img
-                src={state.selectedCountry.flags.svg}
-                alt={`Flag of ${state.selectedCountry.name}`}
-                className="h-full w-full"
-              ></img>
-            </div>
+        <div className="container mx-auto lg:mx-0">
+          <div className="flex flex-col lg:flex-row ml-10 mr-10 lg:mr-0 gap-0 lg:gap-32">
+            <img
+              src={state.selectedCountry.flags.svg}
+              alt={`Flag of ${state.selectedCountry.name}`}
+              className="object-contain h-full w-full max-h-96 min-h-96 min-w-auto lg:min-w-450 max-w-450 flag-img"
+            ></img>
             <div>
               <h1 className="font-extrabold text-2xl mb-8 mt-8">
                 {state.selectedCountry.name}
