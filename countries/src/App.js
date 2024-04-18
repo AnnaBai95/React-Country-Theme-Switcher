@@ -1,12 +1,11 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import countryData from "./data/data.json";
 import { useState } from "react";
 import NavBar from "./components/navigation/nav";
-import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
+import CustomSelect from "./components/custom-select";
 
 function App() {
   const [countryList, setCountryList] = useState(countryData);
@@ -30,6 +29,13 @@ function App() {
     setCountryList(countrySearchList);
   };
 
+  const options = uniqueRegions.map((reg) => {
+    return {
+      label: reg.region,
+      value: reg.region,
+    };
+  });
+
   return (
     <div className="">
       <NavBar></NavBar>
@@ -44,15 +50,13 @@ function App() {
               onChange={(e) => handleCountrySearch(e.target.value)}
             ></input>
           </div>
-          <select onChange={(e) => handleRegionFilter(e.target.value)} className="rounded">
-            <option>Filter by region</option>
-            {uniqueRegions &&
-              uniqueRegions.map((reg) => (
-                <option key={uuidv4()}>{reg.region}</option>
-              ))}
-          </select>
+          <CustomSelect
+            options={options}
+            placeholder="Filter by region"
+            onRegionChange={handleRegionFilter}
+          ></CustomSelect>
         </div>
-        
+
         <div className="container flex flex-wrap gap-16 mt-10 justify-center md:justify-normal">
           {countryList &&
             countryList.map((country, index) => (
