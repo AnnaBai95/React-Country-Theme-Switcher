@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./components/navigation/nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -80,16 +80,26 @@ function CountryDetails(props) {
               <div className="mt-16 flex">
                 <span className="font-extrabold me-2">Border Countries: </span>
                 <div className="flex flex-wrap gap-2">
-                  {state.selectedCountry.borders?.map((border, index) => (
-                    <span
-                      key={index}
-                      className="border text-sm py-1 px-5 shadow-border"
-                    >
-                      {state.countries
-                        .filter((country) => country.alpha3Code === border)
-                        .map((country) => country.name)}
-                    </span>
-                  ))}
+                  {state.selectedCountry.borders?.map((border, index) => {
+                    // Find the bordering country object in state.countries
+                    const borderingCountry = state.countries.find(
+                      (country) => country.alpha3Code === border
+                    );
+                    return (
+                      <Link
+                        to={`/details/${borderingCountry.name}`}
+                        state={{
+                          selectedCountry: state.selectedCountry,
+                          countries: state.countries,
+                        }}
+                        key={index}
+                      >
+                        <span className="border text-sm py-1 px-5 shadow-border">
+                          {borderingCountry.name}
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -100,3 +110,25 @@ function CountryDetails(props) {
   );
 }
 export default CountryDetails;
+
+{
+  /* {state.selectedCountry.borders?.map((border, index) => (
+                    <Link
+                      to={`/details/${border.name}`}
+                      state={{
+                        selectedCountry: state.selectedCountry,
+                        countries: state.countries,
+                      }}
+                      key={index}
+                    >
+                      <span
+                        key={index}
+                        className="border text-sm py-1 px-5 shadow-border"
+                      >
+                        {state.countries
+                          .filter((country) => country.alpha3Code === border)
+                          .map((country) => country.name)}
+                      </span>
+                    </Link>
+                  ))} */
+}

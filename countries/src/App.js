@@ -16,9 +16,14 @@ function App() {
   );
 
   const handleRegionFilter = (selectedRegion) => {
-    const newCountryList = countryData.filter(
-      (country) => country.region === selectedRegion
-    );
+    var newCountryList;
+    if (selectedRegion === "All") {
+      newCountryList = countryData;
+    } else {
+      newCountryList = countryData.filter(
+        (country) => country.region === selectedRegion
+      );
+    }
     setCountryList(newCountryList);
   };
 
@@ -34,6 +39,18 @@ function App() {
       label: reg.region,
       value: reg.region,
     };
+  });
+
+  // Add 'All' to show all of the countries again
+  options.push({ label: "All", value: "All" });
+
+  options.sort((a, b) => {
+    // All should always be at the top
+    if (a.value === "All") return -1;
+    if (b.value === "All") return 1;
+
+    // Sort the other values in alphabetical order
+    return a.value.localeCompare(b.value);
   });
 
   return (

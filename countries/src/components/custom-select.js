@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,23 +22,13 @@ const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
       >
         <div className="flex justify-between items-center px-4 py-4">
           <span>{selectedOption ? selectedOption.label : placeholder}</span>
-          <svg
-            className={`w-5 h-5 ${isOpen ? "transform rotate-180" : ""}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            className={` w-3 h-3 ${isOpen ? "transform rotate-180" : ""}`}
+          ></FontAwesomeIcon>
         </div>
         {isOpen && (
-          <div className="absolute z-10 w-full rounded bg-white mt-1 shadow-border">
+          <div className="absolute z-10 w-full rounded bg-white mt-1 shadow">
             {options.map((option) => (
               <div
                 key={option.value}
