@@ -79,7 +79,7 @@ function CountryDetails(props) {
               </div>
               <div className="mt-16 flex">
                 <span className="font-extrabold me-2">Border Countries: </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {state.selectedCountry.borders?.map((border, index) => {
                     // Find the bordering country object in state.countries
                     const borderingCountry = state.countries.find(
@@ -89,12 +89,13 @@ function CountryDetails(props) {
                       <Link
                         to={`/details/${borderingCountry.name}`}
                         state={{
-                          selectedCountry: state.selectedCountry,
+                          selectedCountry: borderingCountry,
                           countries: state.countries,
                         }}
                         key={index}
                       >
-                        <span className="border text-sm py-1 px-5 shadow-border">
+                        <span className="border text-sm py-1 px-5 shadow-border hover:bg-neutral-200
+                         hover:font-semibold hover:border-neutral-200">
                           {borderingCountry.name}
                         </span>
                       </Link>
@@ -110,25 +111,3 @@ function CountryDetails(props) {
   );
 }
 export default CountryDetails;
-
-{
-  /* {state.selectedCountry.borders?.map((border, index) => (
-                    <Link
-                      to={`/details/${border.name}`}
-                      state={{
-                        selectedCountry: state.selectedCountry,
-                        countries: state.countries,
-                      }}
-                      key={index}
-                    >
-                      <span
-                        key={index}
-                        className="border text-sm py-1 px-5 shadow-border"
-                      >
-                        {state.countries
-                          .filter((country) => country.alpha3Code === border)
-                          .map((country) => country.name)}
-                      </span>
-                    </Link>
-                  ))} */
-}
