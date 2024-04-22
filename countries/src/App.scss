@@ -1,9 +1,7 @@
 @import "./variables.scss";
 
 .input-group {
-  background-color: $white;
   padding: 15px;
-  box-shadow: 0 1px 3px 1px $shadow-grey;
   font-size: 0.875rem;
   .icon {
     color: $dark-grey;
@@ -15,14 +13,11 @@
 }
 
 .custom-select {
-  box-shadow: 0 1px 3px 1px $shadow-grey;
   font-size: 0.875rem;
   font-weight: 600;
 }
 
 .card {
-  // width: 269px;
-  box-shadow: 0 1px 3px 1px $shadow-grey;
   cursor: pointer;
 
   .card-header {

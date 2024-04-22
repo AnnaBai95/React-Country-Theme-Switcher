@@ -9,13 +9,9 @@
   html {
     font-family: "Nunito Sans", sans-serif;
     background: $v-light-grey;
+
+    &.dark{
+      background-color: $v-dark-blue-1;
+    }
   }
 }
-
-
-@layer components{
-  header{
-    box-shadow: 0 1px 3px 1px $shadow-grey;
-  }
-}
-

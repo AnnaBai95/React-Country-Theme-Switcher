@@ -58,12 +58,12 @@ function App() {
       <NavBar></NavBar>
       <main className="mt-10 px-10">
         <div className="flex flex-col md:flex-row justify-between">
-          <div className="input-group w-full md:w-4/12 mb-10 md:mb-auto inline-flex items-center rounded">
+          <div className="input-group w-full md:w-4/12 mb-10 md:mb-auto inline-flex items-center rounded bg-white shadow-custom dark:bg-darkBlue  dark:shadow-customDark">
             <FontAwesomeIcon icon={faSearch} className="icon ps-1 pr-4" />
             <input
               type="text"
               placeholder="Search for a country..."
-              className="w-full"
+              className="w-full dark:bg-darkBlue dark:text-white"
               onChange={(e) => handleCountrySearch(e.target.value)}
             ></input>
           </div>
@@ -82,7 +82,7 @@ function App() {
                 state={{ selectedCountry: country, countries: countryData }}
                 key={index}
               >
-                <div className="card bg-white rounded w-72 sm:w-52 xs:w-60 md:w-52 lg:w-58 xl:w-64 2xl:w-80">
+                <div className="card bg-white shadow-custom dark:bg-darkBlue dark:shadow-customDark dark:text-white rounded w-72 sm:w-52 xs:w-60 md:w-52 lg:w-58 xl:w-64 2xl:w-80">
                   <div className="card-header">
                     <img
                       src={country.flags.png}
@@ -94,7 +94,7 @@ function App() {
                     <p className="font-extrabold mb-3 title">{country.name}</p>
                     <div>
                       <span className="font-semibold">Population: </span>
-                      <span>{country.population}</span>
+                      <span>{country.population.toLocaleString()}</span>
                     </div>
                     <div>
                       <span className="font-semibold">Region: </span>

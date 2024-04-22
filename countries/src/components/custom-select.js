@@ -17,7 +17,7 @@ const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
   return (
     <div className="relative w-48">
       <div
-        className="relative rounded bg-white cursor-pointer custom-select"
+        className="relative rounded bg-white dark:bg-darkBlue shadow-custom dark:text-white dark:shadow-customDark cursor-pointer custom-select"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center px-4 py-4">
@@ -28,11 +28,11 @@ const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
           ></FontAwesomeIcon>
         </div>
         {isOpen && (
-          <div className="absolute z-10 w-full rounded bg-white mt-1 shadow">
+          <div className="absolute z-10 w-full rounded bg-white  dark:bg-darkBlue dark:text-white mt-1 shadow">
             {options.map((option) => (
               <div
                 key={option.value}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
                 {option.label}
