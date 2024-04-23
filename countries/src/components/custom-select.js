@@ -10,7 +10,7 @@ const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
   useEffect(() => {
     const handleOutsideSelectClick = (event) => {
       if (selectRef.current && !selectRef.current.contains(event.target)) {
-        setIsOpen(!isOpen);
+        setIsOpen(false);
       }
     };
 
