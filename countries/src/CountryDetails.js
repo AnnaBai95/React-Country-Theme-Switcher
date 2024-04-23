@@ -16,7 +16,8 @@ function CountryDetails(props) {
       <main>
         <div className="mt-11 mb-11 ml-10">
           <button
-            className="border py-2 px-7 rounded shadow-border text-sm"
+            className="border dark:bg-darkBlue dark:border-0 py-2 px-7 rounded shadow-custom 
+            dark:shadow-customDark dark:text-white text-sm  hover:bg-neutral-200  dark:hover:text-gray-900"
             onClick={() => navigate("/")}
           >
             <FontAwesomeIcon icon={faArrowLeft} className="mr-1" /> Back
@@ -29,7 +30,7 @@ function CountryDetails(props) {
               alt={`Flag of ${state.selectedCountry.name}`}
               className="object-contain h-full w-full max-h-96 min-h-96 min-w-auto lg:min-w-450 max-w-450 flag-img"
             ></img>
-            <div>
+            <div className="dark:text-white">
               <h1 className="font-extrabold text-2xl mb-8 mt-8">
                 {state.selectedCountry.name}
               </h1>
@@ -94,8 +95,10 @@ function CountryDetails(props) {
                         }}
                         key={index}
                       >
-                        <span className="border text-sm py-1 px-5 shadow-border hover:bg-neutral-200
-                         hover:font-semibold hover:border-neutral-200">
+                        <span
+                          className="border rounded-sm text-sm py-1 px-5 shadow-custom dark:shadow-customDark dark:bg-darkBlue dark:border-0 hover:bg-neutral-200
+                         hover:font-semibold hover:border-neutral-200 dark:hover:text-gray-900"
+                        >
                           {borderingCountry.name}
                         </span>
                       </Link>

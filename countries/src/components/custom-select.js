@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const selectRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideSelectClick = (event) => {
+      if (selectRef.current && !selectRef.current.contains(event.target)) {
+        setIsOpen(!isOpen);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideSelectClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideSelectClick);
+    };
+  }, [selectRef, isOpen]);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -15,9 +29,10 @@ const CustomSelect = ({ options, placeholder, onRegionChange, className }) => {
   };
 
   return (
-    <div className="relative w-48">
+    <div className="relative w-48" ref={selectRef}>
       <div
-        className="relative rounded bg-white dark:bg-darkBlue shadow-custom dark:text-white dark:shadow-customDark cursor-pointer custom-select"
+        className="relative rounded bg-white dark:bg-darkBlue shadow-custom
+         dark:text-white dark:shadow-customDark cursor-pointer custom-select"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center px-4 py-4">
