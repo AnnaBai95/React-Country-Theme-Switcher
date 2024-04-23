@@ -30,7 +30,7 @@ function NavBar() {
       <nav className="flex justify-between">
         <span className="font-extrabold">Where in the world?</span>
         <button onClick={handleDarkModeClick}>
-          <FontAwesomeIcon icon={faMoon} className="me-2 -rotate-30 animate-bounce" />
+          <FontAwesomeIcon icon={faMoon} className="me-2 -rotate-30 animate-bounce dark:animate-pulse" />
           Dark Mode
         </button>
       </nav>
