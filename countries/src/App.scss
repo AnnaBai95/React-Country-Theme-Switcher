@@ -1,0 +1,47 @@
+@import "./variables.scss";
+
+.input-group {
+  padding: 15px;
+  font-size: 0.875rem;
+  .icon {
+    color: $dark-grey;
+  }
+
+  input {
+    outline: none;
+  }
+}
+
+.custom-select {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.card {
+  cursor: pointer;
+
+  .card-header {
+    img {
+      object-fit: fill;
+      min-height: 150px;
+      max-height: 150px;
+    }
+  }
+
+  .card-body :not(.title) {
+    font-size: 0.875rem;
+  }
+}
+
+
+
+@media (min-width: 1024px) {
+  .card {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .flag-img{
+    object-fit: initial;
+  }
+}
