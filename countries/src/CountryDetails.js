@@ -14,7 +14,7 @@ function CountryDetails(props) {
       <NavBar></NavBar>
 
       <main>
-        <div className="mt-11 mb-11 ml-10 my-2">
+        <div className="mt-11 mb-11 ml-10">
           <button
             className="border dark:bg-darkBlue dark:border-0 py-2 px-7 rounded shadow-custom 
             dark:shadow-customDark dark:text-white text-sm  hover:bg-neutral-200  dark:hover:text-gray-900"
