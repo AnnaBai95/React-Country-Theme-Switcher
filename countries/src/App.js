@@ -74,7 +74,7 @@ function App() {
           ></CustomSelect>
         </div>
 
-        <div className="container flex flex-wrap gap-16 mt-10 justify-center md:justify-normal">
+        <div className="container flex flex-wrap gap-16 my-10 justify-center md:justify-normal">
           {countryList &&
             countryList.map((country, index) => (
               <Link
