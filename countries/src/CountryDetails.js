@@ -78,7 +78,7 @@ function CountryDetails(props) {
                   </span>
                 </div>
               </div>
-              <div className="mt-16 flex">
+              <div className="my-16 flex">
                 <span className="font-extrabold me-2">Border Countries: </span>
                 <div className="flex flex-wrap gap-3">
                   {state.selectedCountry.borders?.map((border, index) => {
