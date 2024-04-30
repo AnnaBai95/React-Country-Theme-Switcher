@@ -5,11 +5,13 @@ import { useEffect, useState } from "react";
 function NavBar() {
   const [isDark, setIsDark] = useState(() => {
     const storageTheme = localStorage.getItem("darkMode");
-    return storageTheme
-      ? JSON.stringify("darkMode") ||
-          (JSON.stringify("darkMode") &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-      : false;
+  
+    if (storageTheme !== null) {
+        return JSON.parse(storageTheme);
+    }
+
+    //check system preferences as well
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
   const handleDarkModeClick = () => {
@@ -30,7 +32,10 @@ function NavBar() {
       <nav className="flex justify-between">
         <span className="font-extrabold">Where in the world?</span>
         <button onClick={handleDarkModeClick}>
-          <FontAwesomeIcon icon={faMoon} className="me-2 -rotate-30 animate-bounce dark:animate-pulse" />
+          <FontAwesomeIcon
+            icon={faMoon}
+            className="me-2 -rotate-30 animate-bounce dark:animate-pulse"
+          />
           Dark Mode
         </button>
       </nav>
