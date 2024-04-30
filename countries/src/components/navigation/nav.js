@@ -1,19 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useState } from "react";
+import { parse } from "@fortawesome/fontawesome-svg-core";
 
 function NavBar() {
+
+
+  //My JSON parse is throwing a parse error in production
+
+
   const [isDark, setIsDark] = useState(() => {
-
-    const storageTheme = localStorage.getItem("darkMode");
-    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  
-    return storageTheme !== null ? JSON.parse(storageTheme) : prefersDarkMode;
+    try {
+      const storageTheme = localStorage.getItem("darkMode");
+      const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      return storageTheme !== null ? JSON.parse(storageTheme) : prefersDarkMode;
+    } catch (error) {
+      return false;
+    }
   });
-
-  const handleDarkModeClick = () => {
-    setIsDark((prevIsDark) => !prevIsDark);
-  };
 
   useEffect(() => {
     if (isDark) {
@@ -24,6 +28,10 @@ function NavBar() {
 
     localStorage.setItem("darkMode", JSON.stringify(isDark));
   }, [isDark]);
+
+  const handleDarkModeClick = () => {
+    setIsDark((prevIsDark) => !prevIsDark);
+  };
 
   return (
     <header className="px-10 py-5 bg-white dark:bg-darkBlue shadow-custom dark:shadow-customDark  dark:text-white">
