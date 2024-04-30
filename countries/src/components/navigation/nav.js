@@ -4,16 +4,11 @@ import { useEffect, useState } from "react";
 
 function NavBar() {
   const [isDark, setIsDark] = useState(() => {
+
     const storageTheme = localStorage.getItem("darkMode");
-
-    console.log("Storage", storageTheme);
-
-    if (storageTheme !== null) {
-      return storageTheme;
-    }
-
-    //check system preferences as well
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+    return storageTheme !== null ? JSON.parse(storageTheme) : prefersDarkMode;
   });
 
   const handleDarkModeClick = () => {
@@ -26,7 +21,7 @@ function NavBar() {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    console.log("What is", isDark);
+    
     localStorage.setItem("darkMode", isDark);
   }, [isDark]);
 
