@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useState } from "react";
-import { parse } from "@fortawesome/fontawesome-svg-core";
 
 function NavBar() {
 
