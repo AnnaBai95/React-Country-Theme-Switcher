@@ -5,20 +5,6 @@ import { parse } from "@fortawesome/fontawesome-svg-core";
 
 function NavBar() {
 
-<<<<<<< Updated upstream
-
-  //My JSON parse is throwing a parse error in production
-
-
-  const [isDark, setIsDark] = useState(() => {
-    try {
-      const storageTheme = localStorage.getItem("darkMode");
-      const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      return storageTheme !== null ? JSON.parse(storageTheme) : prefersDarkMode;
-    } catch (error) {
-      return false;
-    }
-=======
   const [isDark, setIsDark] = useState(() => {
     // try {
       const storageTheme = localStorage.getItem("darkMode");
@@ -27,7 +13,6 @@ function NavBar() {
     // } catch (error) {
     //   return false;
     // }
->>>>>>> Stashed changes
   });
 
   useEffect(() => {
