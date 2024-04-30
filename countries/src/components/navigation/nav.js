@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 function NavBar() {
   const [isDark, setIsDark] = useState(() => {
 
-    const storageTheme = JSON.parse(localStorage.getItem("darkMode"));
+    const storageTheme = localStorage.getItem("darkMode");
     const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
   
-    return storageTheme !== null ? storageTheme : prefersDarkMode;
+    return storageTheme !== null ? JSON.parse(storageTheme) : prefersDarkMode;
   });
 
   const handleDarkModeClick = () => {
@@ -22,7 +22,7 @@ function NavBar() {
       document.documentElement.classList.remove("dark");
     }
 
-    localStorage.setItem("darkMode", isDark);
+    localStorage.setItem("darkMode", JSON.stringify(isDark));
   }, [isDark]);
 
   return (
