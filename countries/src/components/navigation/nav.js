@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 function NavBar() {
   const [isDark, setIsDark] = useState(() => {
     const storageTheme = localStorage.getItem("darkMode");
-  
+
+    console.log("Storage", storageTheme);
+
     if (storageTheme !== null) {
-        return JSON.parse(storageTheme.toString());
+      return storageTheme;
     }
 
     //check system preferences as well
@@ -24,6 +26,7 @@ function NavBar() {
     } else {
       document.documentElement.classList.remove("dark");
     }
+    console.log("What is", isDark);
     localStorage.setItem("darkMode", isDark);
   }, [isDark]);
 
