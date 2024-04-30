@@ -7,7 +7,7 @@ function NavBar() {
     const storageTheme = localStorage.getItem("darkMode");
   
     if (storageTheme !== null) {
-        return JSON.parse(storageTheme);
+        return JSON.parse(storageTheme.toString());
     }
 
     //check system preferences as well
