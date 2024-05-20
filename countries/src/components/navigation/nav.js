@@ -3,20 +3,12 @@ import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useState } from "react";
 
 function NavBar() {
+
   const [isDark, setIsDark] = useState(() => {
-    const storageTheme = localStorage.getItem("darkMode");
-  
-    if (storageTheme !== null) {
-        return JSON.parse(storageTheme);
-    }
-
-    //check system preferences as well
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const storageTheme = localStorage.getItem("darkMode");
+      const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      return storageTheme !== null ? JSON.parse(storageTheme) : prefersDarkMode;
   });
-
-  const handleDarkModeClick = () => {
-    setIsDark((prevIsDark) => !prevIsDark);
-  };
 
   useEffect(() => {
     if (isDark) {
@@ -24,8 +16,13 @@ function NavBar() {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("darkMode", isDark);
+
+    localStorage.setItem("darkMode", JSON.stringify(isDark));
   }, [isDark]);
+
+  const handleDarkModeClick = () => {
+    setIsDark((prevIsDark) => !prevIsDark);
+  };
 
   return (
     <header className="px-10 py-5 bg-white dark:bg-darkBlue shadow-custom dark:shadow-customDark  dark:text-white">

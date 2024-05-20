@@ -5,6 +5,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function CountryDetails(props) {
   const { state } = useLocation();
+  
   const navigate = useNavigate();
 
   return (
