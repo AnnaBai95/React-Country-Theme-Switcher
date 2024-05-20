@@ -31,7 +31,7 @@ Users should be able to:
 
 ### screen-recording
 
-![] [./screen_recording.mp4]
+[https://github.com/AnnaBai95/React-Country-Theme-Switcher/blob/dev/screen_recording.mp4]
 
 ### Links
 
@@ -52,5 +52,5 @@ Users should be able to:
 
 ## Author
  
-- LinkedIn - [anna-stacia-bailey-123066203] (https://www.linkedin.com/in/anna-stacia-bailey-123066203/)
+- LinkedIn - [@anna-stacia-bailey-123066203](https://www.linkedin.com/in/anna-stacia-bailey-123066203/)
 - Frontend Mentor - [@AnnaBai95](https://www.frontendmentor.io/profile/AnnaBai95)
