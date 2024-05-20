@@ -52,5 +52,5 @@ Users should be able to:
 
 ## Author
  
-LinkedIn - [https://www.linkedin.com/in/anna-stacia-bailey-123066203/] (https://www.linkedin.com/in/anna-stacia-bailey-123066203/)
+- LinkedIn - [anna-stacia-bailey-123066203] (https://www.linkedin.com/in/anna-stacia-bailey-123066203/)
 - Frontend Mentor - [@AnnaBai95](https://www.frontendmentor.io/profile/AnnaBai95)
