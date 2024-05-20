@@ -31,7 +31,9 @@ Users should be able to:
 
 ### screen-recording
 
-https://github.com/AnnaBai95/React-Country-Theme-Switcher/blob/dev/screen_recording.mp4
+https://github.com/AnnaBai95/React-Country-Theme-Switcher/assets/85046556/5875117e-a9f9-4978-8cc3-3d054ca9df66
+
+
 
 ### Links
 
