@@ -1,6 +1,6 @@
 # Frontend Mentor - React REST Countries API with color theme switcher
 
-This is a Frontend Mentor challenge built using React that displays country flag and allows users to switch between light and dark mode themes
+This is a Frontend Mentor challenge built using React that displays country flag and allows users to switch between light and dark mode themes. The data is pulled from a json file instead of directly from the api.
 
 ## Table of contents
 
