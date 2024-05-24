@@ -1,6 +1,6 @@
-# Frontend Mentor - React REST Countries API with color theme switcher
+# Frontend Mentor - React Countries API with color theme switcher
 
-This is a Frontend Mentor challenge built using React that displays country flag and allows users to switch between light and dark mode themes
+This is a Frontend Mentor challenge built using React that displays country flag and allows users to switch between light and dark mode themes. The data is pulled from a json file instead of directly from the api.
 
 ## Table of contents
 
@@ -22,7 +22,7 @@ This is a Frontend Mentor challenge built using React that displays country flag
 
 Users should be able to:
 
-- See all countries from the API on the homepage
+- See all countries from the json file on the homepage. Since the api might go down.
 - Search for a country using an `input` field
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
