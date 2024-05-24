@@ -10,29 +10,11 @@ import CustomSelect from "./components/custom-select";
 function App() {
   const [countryList, setCountryList] = useState(countryData);
 
+  //populate region filter from data
   const uniqueRegions = countryData.filter(
     (country, index, self) =>
       index === self.findIndex((c) => c.region === country.region)
   );
-
-  const handleRegionFilter = (selectedRegion) => {
-    var newCountryList;
-    if (selectedRegion === "All") {
-      newCountryList = countryData;
-    } else {
-      newCountryList = countryData.filter(
-        (country) => country.region === selectedRegion
-      );
-    }
-    setCountryList(newCountryList);
-  };
-
-  const handleCountrySearch = (countryName) => {
-    const countrySearchList = countryData.filter((country) =>
-      country.name.toLowerCase().includes(countryName.toLowerCase())
-    );
-    setCountryList(countrySearchList);
-  };
 
   const options = uniqueRegions.map((reg) => {
     return {
@@ -52,6 +34,25 @@ function App() {
     // Sort the other values in alphabetical order
     return a.value.localeCompare(b.value);
   });
+
+  const handleRegionFilter = (selectedRegion) => {
+    var newCountryList;
+    if (selectedRegion === "All") {
+      newCountryList = countryData;
+    } else {
+      newCountryList = countryData.filter(
+        (country) => country.region === selectedRegion
+      );
+    }
+    setCountryList(newCountryList);
+  };
+
+  const handleCountrySearch = (countryName) => {
+    const countrySearchList = countryData.filter((country) =>
+      country.name.toLowerCase().includes(countryName.toLowerCase())
+    );
+    setCountryList(countrySearchList);
+  };
 
   return (
     <div className="">
